@@ -2,7 +2,7 @@
     <div>
        <Header seoParams="seoParams" ></Header>
 
-        <div class="container mx-auto px-5 lg:max-w-screen-sm">
+        <div class="container mx-auto px-5 lg:max-w-screen-sm mt-20">
             <slot/>
         </div>
 

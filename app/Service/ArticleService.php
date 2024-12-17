@@ -39,6 +39,18 @@ class ArticleService
 
     public function getBySlug(string $slug)
     {
-        return $this->articleRepo->getBySlug($slug);
+        /** @var Article $article */
+        $article =  $this->articleRepo->getBySlug($slug);
+
+        if (!$article) {
+            abort(404);
+        }
+
+        return [
+            'id' => $article->id,
+            'title' => $article->title,
+            'content' => $article->content,
+            'created_at' => $article->created_at->format('M, j Y'),
+        ];
     }
 }

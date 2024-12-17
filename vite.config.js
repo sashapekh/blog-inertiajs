@@ -30,6 +30,8 @@ export default defineConfig({
             // Laravel web server. This alias will allow the Vite server to
             // resolve those URLs correctly.
             '@': '/resources/js',
+            "@components": "/resources/js/Components",
+            "@interfaces": "/resources/js/Interfaces",
         }
     }
 });

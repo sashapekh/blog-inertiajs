@@ -1,8 +1,8 @@
 <template>
-    <DefaultTemplate>
-        <h1>{{ seoParams.h1Header }}</h1>
-        
-    </DefaultTemplate>
+    <h1 class="mb-5 font-sans text-center">
+        {{ seoParams.h1Header }}
+    </h1>
+    
 </template>
 
 <script setup lang="ts">

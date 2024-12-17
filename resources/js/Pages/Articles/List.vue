@@ -1,23 +1,7 @@
 <template>
     <template v-if="articles" >
         <div v-for="article in articles.data" :key="article.id">
-            <a class="no-underline transition block border border-lighter w-full mb-10 p-5 rounded post-card"
-                href="https://blog.laravel.com/laravel-application-monitoring-debugging-with-sentry">
-                <!-- <div class="block h-post-card-image bg-cover bg-center bg-no-repeat w-full h-48 mb-5"
-                    style="background-image: url('https://laravel-blog-assets.s3.amazonaws.com/3WWa6XTReTLYMQi4FtkuJJUltocCKlirJ42YgpJ4.png')"> -->
-                <!-- </div> -->
-                <div class="flex flex-col justify-between flex-1">
-                    <div>
-                        <h2 class="font-sans leading-normal block mb-6">{{ article.title }}</h2>
-                        <p class="leading-normal mb-6 font-serif leading-loose">
-                           {{ article.content }}
-                        </p>
-                    </div>
-                    <div class="flex items-center text-sm text-light">
-                        <span class="ml-auto">{{ article.created_at }}</span>
-                    </div>
-                </div>
-            </a>
+            <ShortOneArticle :article="article" />
         </div>
     </template>
 
@@ -50,6 +34,7 @@
 
 
 <script setup lang="ts">
+import ShortOneArticle from '@/Components/Articles/ShortOneArticle.vue';
 import { ArticlesList } from '@/Interfaces/articles';
     defineProps<{
         articles : ArticlesList
