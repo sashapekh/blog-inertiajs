@@ -9,6 +9,7 @@
         href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/sunburst.min.css">
     @vite('resources/js/app.ts')
     <link rel="stylesheet" href="/css/theme.css">
+    @routes
     @inertiaHead
 </head>
 

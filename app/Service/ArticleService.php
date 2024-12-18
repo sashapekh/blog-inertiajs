@@ -37,6 +37,12 @@ class ArticleService
         );
     }
 
+
+    public function getArticles(): LengthAwarePaginator
+    {
+        return $this->articleRepo->getAllWithPaginate();
+    }
+
     public function getBySlug(string $slug)
     {
         /** @var Article $article */
@@ -52,5 +58,20 @@ class ArticleService
             'content' => $article->content,
             'created_at' => $article->created_at->format('M, j Y'),
         ];
+    }
+
+    public function create(array $data): Article
+    {
+        return $this->articleRepo->create($data);
+    }
+
+    public function update(int $articleId, array $data): Article
+    {
+        return $this->articleRepo->update($articleId, $data);
+    }
+
+    public function delete(int $articleId): void
+    {
+        $this->articleRepo->delete($articleId);
     }
 }

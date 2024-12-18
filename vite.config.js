@@ -1,8 +1,20 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
- 
+import path from 'path';
+
 export default defineConfig({
+   resolve: {
+        alias: {
+            // The Laravel plugin will re-write asset URLs to point to the
+            // Laravel web server. This alias will allow the Vite server to
+            // resolve those URLs correctly.
+            '@': '/resources/js',
+            "@components": "/resources/js/Components",
+            "@interfaces": "/resources/js/Interfaces",
+            'ziggy-js': path.resolve('vendor/tightenco/ziggy'),
+        }
+    },
     plugins: [
         laravel(['resources/js/app.ts']),
         vue({
@@ -23,15 +35,5 @@ export default defineConfig({
                 },
             },
         }),
-    ],
-    resolve: {
-        alias: {
-            // The Laravel plugin will re-write asset URLs to point to the
-            // Laravel web server. This alias will allow the Vite server to
-            // resolve those URLs correctly.
-            '@': '/resources/js',
-            "@components": "/resources/js/Components",
-            "@interfaces": "/resources/js/Interfaces",
-        }
-    }
+    ]
 });
